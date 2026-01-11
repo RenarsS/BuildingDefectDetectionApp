@@ -30,7 +30,6 @@ class DetectionViewModel : ViewModel() {
                 val results = detector!!.detect(bitmap)
                 _detections.value = results
 
-                // Upload in IO thread
                 AzureUploader.upload(bitmap, results)
 
                 _error.value = null
